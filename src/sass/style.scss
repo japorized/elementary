@@ -218,7 +218,7 @@ body {
   }
 }
 
-@media (max-width: 767px) {
+@media screen and (max-width: 767px) {
   body {
     overflow: visible;
   }
