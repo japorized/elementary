@@ -31,13 +31,12 @@ body {
   width: 80%;
   height: 450px;
   margin: 120px auto;
-  display: flex;
-  justify-content: center;
   overflow: hidden;
 
   #left {
     width: 80%;
     height: inherit;
+    float: left;
 
     div {
       height: 0;
@@ -100,6 +99,7 @@ body {
 
     .content-container {
       padding: 20px;
+      position: relative;
       display: flex;
       flex-flow: row wrap;
       justify-content: space-around;

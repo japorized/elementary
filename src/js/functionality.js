@@ -10,7 +10,7 @@ for (var i = 0; i < btns.length; i++) {
 	}, false);
 }
 
-document.onkeydown = function (e) {
+document.onkeyup = function (e) {
 	if (e.shiftKey && e.keyCode == 49) {
 		var curActive = document.querySelector('#right > .active');
 		if ( curActive.getAttribute('id') !== 'search' ) {

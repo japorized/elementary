@@ -1,6 +1,7 @@
 ## Development folders
 .devnotes
 scripts/
+.sass_cache/
 
 ## macOS
 # General

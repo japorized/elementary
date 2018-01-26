@@ -23,3 +23,5 @@ gulp.task('uglify', (cb) => {
     cb
   );
 })
+
+gulp.task('build', ['sass', 'uglify']);
