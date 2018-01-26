@@ -44,6 +44,20 @@ body {
       transition: all .1s ease-in-out;
       -moz-transition: all .1s ease-in-out;
       -webkit-transition: all .1s ease-in-out;
+
+      a:link, a:visited {
+        text-decoration: none;
+        color: $light;
+        margin: 30px 20px;
+        padding: 15px 30px;
+        transition: all .1s ease-in-out;
+        -moz-transition: all .1s ease-in-out;
+        -webkit-transition: all .1s ease-in-out;
+      }
+
+      a:hover {
+        background: $dark;
+      }
     }
 
     .active {
@@ -125,7 +139,6 @@ body {
 
     #code-content, #social-content, #game-content {
       a:link, a:visited {
-        text-decoration: none;
         color: $dark;
         margin: 30px 20px;
         padding: 15px 30px;

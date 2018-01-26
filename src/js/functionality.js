@@ -20,8 +20,6 @@ document.onkeyup = function (e) {
 			document.querySelector('#left > #search-content').classList += 'active';
 		}
 		queryBar.focus();
-	} else if (e.key == "Tab") {
-		e.preventDefault();
 	}
 };
 
@@ -31,6 +29,11 @@ queryBar.onkeydown = function(e) {
 			window.location.href = this.value;
 		} else {
 			window.location.href = "https://duckduckgo.com/?q=" + this.value;
+		}
+	} else if (e.keyCode == 9) {
+		e.preventDefault();
+		if (this.value.indexOf('ht') == 0) {
+			this.value = 'https://';
 		}
 	}
 };
