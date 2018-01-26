@@ -1,0 +1,187 @@
+// Color scheme - base16 eighties
+$dark: #2D2D2D;
+$light: #D3D0C8;
+$gray: #707369;
+$magenta: #CD98CD;
+$red: #F47678;
+$yellow: #E2B552;
+$green: #98CD97;
+$lightblue: #61CCCD;
+$blue: #6498CE;
+$brown: #D47B4E;
+
+// Variables
+$total-categories: 6;
+
+*, html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: $dark;
+  color: $light;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  overflow: hidden;
+}
+
+#container {
+  width: 80%;
+  height: 450px;
+  margin: 120px auto;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+
+  #left {
+    width: 80%;
+    height: inherit;
+
+    div {
+      height: 0;
+      position: relative;
+      transition: height .1s ease-in-out;
+    }
+
+    .active {
+      height: inherit;
+    }
+
+    #search-content {
+      background: no-repeat url('../img/hole_in_the_wall_cityscape.jpg') center;
+      background-size: cover;
+
+      input {
+        width: 100%;
+        height: 50px;
+        background: rgba(0, 0, 0, 0.5);
+        color: $light;
+        font-size: 14px;
+        border: none;
+        padding: 5px 20px;
+        position: absolute;
+        bottom: 0;
+        opacity: 0;
+        transition: opacity .2s ease-in-out;
+        -moz-transition: opacity .2s ease-in-out;
+        -webkit-transition: opacity .2s ease-in-out;
+
+        &:focus {
+          opacity: 1;
+        }
+      }
+
+      &:hover input {
+        opacity: 1;
+      }
+    }
+
+    #reddit-content {
+      background: $red;
+    }
+
+    #anime-content {
+      background: $blue;
+    }
+
+    #code-content {
+      background: $magenta;
+    }
+
+    #social-content {
+      background: $yellow;
+    }
+
+    #game-content {
+      background: $green;
+    }
+
+    .content-container {
+      padding: 20px;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-around;
+      align-items: center;
+    }
+  }
+
+  #right {
+    width: 20%;
+    height: inherit;
+    display: inline-block;
+    text-align: center;
+
+    div {
+      width: 100%;
+      height: 100% / $total-categories;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all .1s ease-in-out;
+      -moz-transition: all .1s ease-in-out;
+      -webkit-transition: all .1s ease-in-out;
+
+      &#search:hover {
+        background: $gray;
+      }
+
+      &#reddit:hover {
+        background: $red;
+      }
+
+      &#anime:hover {
+        background: $blue;
+      }
+
+      &#code:hover {
+        background: $magenta;
+        color: $dark;
+      }
+
+      &#social:hover {
+        background: $yellow;
+        color: $dark;
+      }
+
+      &#game:hover {
+        background: $green;
+        color: $dark;
+      }
+
+      .selection-container {
+        background: none;
+        height: 80%;
+        cursor: pointer;
+      }
+    }
+
+    #search.active {
+      background: $gray;
+    }
+
+    #reddit.active {
+      background: $red;
+    }
+
+    #anime.active {
+      background: $blue;
+    }
+
+    #code.active {
+      background: $magenta;
+      color: $dark;
+    }
+
+    #social.active {
+      background: $yellow;
+      color: $dark;
+    }
+
+    #game.active {
+      background: $green;
+      color: $dark;
+    }
+  }
+}

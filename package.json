@@ -1,0 +1,29 @@
+{
+  "name": "elementary",
+  "version": "0.1.0",
+  "description": "a personal startpage/homepage",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/japorized/elementary.git"
+  },
+  "keywords": [
+    "stagepage"
+  ],
+  "author": "Japorized",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/japorized/elementary/issues"
+  },
+  "homepage": "https://github.com/japorized/elementary#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8"
+  },
+  "dependencies": {}
+}
