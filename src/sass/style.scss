@@ -38,12 +38,12 @@ body {
     height: inherit;
     float: left;
 
-    div {
+    & > div {
       height: 0;
       position: relative;
-      transition: height .1s ease-in-out;
-      -moz-transition: height .1s ease-in-out;
-      -webkit-transition: height .1s ease-in-out;
+      transition: all .1s ease-in-out;
+      -moz-transition: all .1s ease-in-out;
+      -webkit-transition: all .1s ease-in-out;
     }
 
     .active {
@@ -127,7 +127,7 @@ body {
       a:link, a:visited {
         text-decoration: none;
         color: $dark;
-        line-height: 30px;
+        margin: 30px 20px;
         padding: 15px 30px;
         transition: all .1s ease-in-out;
         -moz-transition: all .1s ease-in-out;
@@ -147,7 +147,7 @@ body {
     display: inline-block;
     text-align: center;
 
-    div {
+    & > div {
       width: 100%;
       height: 75px;
       transition: all .1s ease-in-out;
@@ -214,6 +214,64 @@ body {
     #game.active {
       background: $green;
       color: $dark;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  body {
+    overflow: visible;
+  }
+
+  #container {
+    margin: 45px auto;
+    height: auto;
+    overflow: visible;
+
+    #left {
+      width: 100%;
+      float: none;
+      height: auto;
+
+      & > div {
+        height: 0;
+
+        & > .content-container {
+          display: none;
+        }
+      }
+
+      .active {
+        height: auto;
+
+        & > .content-container {
+          display: block;
+        }
+      }
+
+      #search-content {
+        height: 150px;
+        input {
+          margin: 50px auto;
+          position: relative;
+        }
+      }
+    }
+
+    #right {
+      position: absolute;
+      top: 15px;
+      height: 30px;
+      left: 10%;
+      width: 80%;
+      display: inline;
+
+      & > div {
+        width: 16.6667%;
+        height: 30px;
+        line-height: 30px;
+        float: left;
+      }
     }
   }
 }

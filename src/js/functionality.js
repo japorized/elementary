@@ -20,6 +20,8 @@ document.onkeyup = function (e) {
 			document.querySelector('#left > #search-content').classList += 'active';
 		}
 		queryBar.focus();
+	} else if (e.key == "Tab") {
+		e.preventDefault();
 	}
 };
 
