@@ -42,6 +42,8 @@ body {
       height: 0;
       position: relative;
       transition: height .1s ease-in-out;
+      -moz-transition: height .1s ease-in-out;
+      -webkit-transition: height .1s ease-in-out;
     }
 
     .active {
