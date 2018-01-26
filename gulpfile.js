@@ -24,4 +24,9 @@ gulp.task('uglify', (cb) => {
   );
 })
 
+gulp.task('uglify:watch', () => {
+  gulp.watch('./src/js/**/*.js', ['uglify']);
+})
+
 gulp.task('build', ['sass', 'uglify']);
+gulp.task('watch', ['sass:watch', 'uglify:watch']);

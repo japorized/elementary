@@ -25,6 +25,10 @@ document.onkeyup = function (e) {
 
 queryBar.onkeydown = function(e) {
 	if (e.key == "Enter") {
-		window.location.href = "https://duckduckgo.com/?q=" + this.value;
+		if (this.value.indexOf('http') != 0) {
+			window.location.href = "https://duckduckgo.com/?q=" + this.value;
+		} else {
+			window.location.href = this.value;
+		}
 	}
 };
