@@ -24,13 +24,14 @@ body {
   color: $light;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 300;
-  overflow: hidden;
+  height: 100vh;
+  display: flex;
 }
 
 #container {
   width: 80%;
   height: 450px;
-  margin: 120px auto;
+  margin: 0px auto;
   overflow: hidden;
 
   #left {
@@ -233,6 +234,7 @@ body {
 
 @media screen and (max-width: 767px) {
   body {
+    display: inline;
     overflow: visible;
   }
 
@@ -286,5 +288,11 @@ body {
         float: left;
       }
     }
+  }
+}
+
+@media(min-height: 450px) {
+  body {
+    align-items: center;
   }
 }
