@@ -7,7 +7,13 @@ for (var i = 0; i < btns.length; i++) {
 		this.classList += 'active';
 		document.querySelector('#left > .active').classList.remove('active');
 		document.querySelector('#left > #' + this.getAttribute('id') + '-content').classList += 'active';
-	}, false);
+	});
+	btns[i].addEventListener('mouseover', function(e) {
+		document.querySelector('#right > .active').classList.remove('active');
+		this.classList += 'active';
+		document.querySelector('#left > .active').classList.remove('active');
+		document.querySelector('#left > #' + this.getAttribute('id') + '-content').classList += 'active';
+	});
 }
 
 document.onkeyup = function (e) {
