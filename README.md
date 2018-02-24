@@ -40,4 +40,4 @@ npm i -D
 
 ---
 
-To deploy to your own repo so that you can access it via `https://<your github username>.github.io/elementary`, assuming that you still call the repo elementary, remember to deploy it to a `gh-pages` branch.
+To deploy to your own repo so that you can access it via `https://<your github username>.github.io/elementary`, assuming that you still call the repo elementary, remember to deploy it to a `gh-pages` branch, or set `master` as the source branch for Github Pages.
