@@ -11,7 +11,7 @@ $blue: #6498CE;
 $brown: #D47B4E;
 
 // Variables
-$total-categories: 6;
+$total-categories: 7;
 
 *, html, body {
   margin: 0;
@@ -30,7 +30,7 @@ body {
 
 #container {
   width: 80%;
-  height: 450px;
+  height: 525px;
   margin: 0px auto;
   overflow: hidden;
 
@@ -106,6 +106,10 @@ body {
       background: $magenta;
     }
 
+    #podcast-content {
+      background: $lightblue;
+    }
+
     #social-content {
       background: $yellow;
     }
@@ -138,7 +142,7 @@ body {
       }
     }
 
-    #code-content, #social-content, #game-content {
+    #code-content, #social-content, #game-content, #podcast-content {
       a:link, a:visited {
         color: $dark;
         margin: 30px 20px;
@@ -186,6 +190,11 @@ body {
         color: $dark;
       }
 
+      &#podcast:hover {
+        background: $lightblue;
+        color: $dark;
+      }
+      
       &#social:hover {
         background: $yellow;
         color: $dark;
