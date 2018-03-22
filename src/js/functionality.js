@@ -30,16 +30,23 @@ document.onkeyup = function (e) {
 };
 
 queryBar.onkeydown = function(e) {
+  var $this = this;
 	if (e.key == "Enter") {
-		if (this.value.indexOf('http://') == 0 || this.value.indexOf('https://') == 0 || this.value.indexOf('file://') == 0) {
-			window.location.href = this.value;
+		if ($this.value.indexOf('http://') == 0 || $this.value.indexOf('https://') == 0 || $this.value.indexOf('file://') == 0) {
+			  window.location.href = $this.value;
 		} else {
-			window.location.href = "https://duckduckgo.com/?q=" + this.value;
+      if ($this.value.indexOf('.com') > 0 || $this.value.indexOf('.org') > 0 || $this.value.indexOf('.io') > 0 || $this.value.indexOf('.ca') > 0) {
+        window.location.href = "https://" + $this.value;
+      } else if ($this.value.indexOf('/r/') != -1) {
+        window.location.href = "https://reddit.com" + $this.value;
+      } else {
+			  window.location.href = "https://duckduckgo.com/?q=" + $this.value;
+		  }
 		}
 	} else if (e.keyCode == 9) {
 		e.preventDefault();
-		if (this.value.indexOf('ht') == 0) {
-			this.value = 'https://';
+		if ($this.value.indexOf('ht') == 0) {
+			$this.value = 'https://';
 		}
 	}
 };
