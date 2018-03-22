@@ -66,8 +66,9 @@ body {
     }
 
     #search-content {
-      background: no-repeat url('../img/hole_in_the_wall_cityscape.jpg') center;
+      background: no-repeat url('http://78.media.tumblr.com/f6395bca7a86e8efa6807271b64fb7f4/tumblr_p4jpsnKZQu1qze3hdo1_500.gif') center;
       background-size: cover;
+
 
       input {
         width: 100%;
@@ -298,6 +299,31 @@ body {
         float: left;
       }
     }
+  }
+}
+
+#credits {
+  font-size: 12px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+
+  a:link, a:visited, a:hover, a:active, a:focus {
+    color: $light;
+    margin: 0;
+    padding: 0;
+    background: none;
+    -webkit-transition: .2s all ease-in-out;
+    -moz-transition: .2s all ease-in-out;
+    transition: .2s all ease-in-out;
+  }
+  
+  a:hover, a:active, a:focus {
+    border-bottom: 2px solid $light;
   }
 }
 
