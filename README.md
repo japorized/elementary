@@ -4,6 +4,32 @@ A startpage for personal usage. Visit it [here](https://japorized.github.io/elem
 
 ---
 
+## About the page
+
+#### Goals
+
+* Clean codebase
+* Minimal & aesthetically pleasing design
+* Compatible with any vi-keybinding emulator for browsers (e.g. Vimium)
+* Easy to navigate even with a mouse
+* Mobile-friendly
+
+#### Usage tips
+
+* Auto-focus on search bar upon visit
+* Hit '!' to focus on search bar if it is not already focused
+* Search bar redirects to Duckduckgo; [bangs](https://duckduckgo.com/bang?q=) work!
+* Hovering over tabs shows the categorized bookmarks
+* In mobile view, click on tabs to show bookmarks; vertical scrolling of tabs is possible
+
+#### Fonts used
+
+* [Fontawesome](https://fontawesome.com/)
+* [VT323](https://fonts.google.com/specimen/VT323)
+* [KFhimaji](https://www.freejapanesefont.com/kf-himaji/)
+
+---
+
 If you want to launch your new tabs with this as your new tab page, on
 
 * Firefox, install the [New Tab Homepage](https://addons.mozilla.org/en-US/firefox/addon/new-tab-homepage/) addon.
