@@ -12,18 +12,22 @@ gulp.task('sass', () => {
 });
 
 gulp.task('uglify', (cb) => {
-  pump([
-      gulp.src('./src/js/**/*.js'),
-      uglify({
-        compress: {
-          collapse_vars: true,
-          toplevel: true
-        }
-      }),
-      gulp.dest('./assets/js')
-    ],
-    cb
-  );
+  try {
+    pump([
+        gulp.src('./src/js/**/*.js'),
+        uglify({
+          compress: {
+            collapse_vars: true,
+            toplevel: true
+          }
+        }),
+        gulp.dest('./assets/js')
+      ],
+      cb
+    );
+  } catch (e) {
+   console.log('gulp uglify: ' + e);
+  }
 });
 
 gulp.task('browser-sync', ['sass', 'uglify'], () => {
@@ -42,3 +46,4 @@ gulp.task('watcher', () => {
 
 gulp.task('build', ['sass', 'uglify']);
 gulp.task('watch', ['browser-sync', 'watcher']);
+gulp.task('default', [ 'watch' ]);

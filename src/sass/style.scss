@@ -12,11 +12,29 @@ $brown: #D47B4E;
 
 // Variables
 $total-categories: 7;
+$datetime-container-width: 25%;
+$datetime-container-height: 10%;
+$datetime-container-top: 10px;
+$datetime-container-left: 100% - $datetime-container-width - 2%;
 
 *, html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "VT323";
+  src: url('../fonts/VT323-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "KFhimaji";
+  src: url('../fonts/KFhimaji.otf');
+  font-weight: normal;
+  font-style: normal;
 }
 
 body {
@@ -66,9 +84,51 @@ body {
     }
 
     #search-content {
-      background: no-repeat url('../img/snow_forest.jpg') center;
+      background: no-repeat url('../img/city_night_dark.gif') center;
       background-size: cover;
 
+      .datetime-container {
+        position: absolute;
+        width: $datetime-container-width;
+        height: $datetime-container-height;
+        background: rgba(0, 0, 0, 0.5);
+        top: $datetime-container-top;
+        left: $datetime-container-left;
+        padding: 15px 20px 20px 20px;
+        display: flex;
+        justify-content: space-between;
+
+        .datetime-day {
+          width: 30%;
+          height: 100%;
+          font-family: "KFhimaji", sans-serif;
+          font-size: 25px;
+          font-weight: 500;
+
+          &, span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+
+        .datetime-time {
+          width: 70%;
+          height: 100%;
+          font-family: "VT323", sans-serif;
+          font-size: 25px;
+          font-weight: 500;
+          padding-top: 2px;
+
+          &, span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            letter-spacing: 3px;
+            color: rgba(255, 255, 255, 0.5);
+          }
+        }
+      }
 
       input {
         width: 100%;
@@ -164,6 +224,7 @@ body {
     width: 20%;
     height: inherit;
     display: inline-block;
+    font-family: "KFhimaji";
     text-align: center;
 
     & > div {
@@ -242,6 +303,31 @@ body {
   }
 }
 
+#credits {
+  font-size: 12px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+
+  a:link, a:visited, a:hover, a:active, a:focus {
+    color: $light;
+    margin: 0;
+    padding: 0;
+    background: none;
+    -webkit-transition: .2s all ease-in-out;
+    -moz-transition: .2s all ease-in-out;
+    transition: .2s all ease-in-out;
+  }
+  
+  a:hover, a:active, a:focus {
+    border-bottom: 2px solid $light;
+  }
+}
+
 @media screen and (max-width: 767px) {
   body {
     display: inline;
@@ -275,10 +361,28 @@ body {
       }
 
       #search-content {
-        height: 150px;
+        height: 200px;
         input {
           margin: 50px auto;
           position: relative;
+        }
+
+        .datetime-container {
+          width: 80%;
+          top: 70%;
+          left: 10%;
+
+          .datetime-day {
+            &, span {
+              font-size: 24px;
+            }
+          }
+
+          .datetime-time {
+            &, span {
+              font-size: 18px;
+            }
+          }
         }
       }
     }
@@ -300,31 +404,8 @@ body {
       }
     }
   }
-}
 
-#credits {
-  font-size: 12px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  position: absolute;
-  right: 5px;
-  bottom: 5px;
-
-  a:link, a:visited, a:hover, a:active, a:focus {
-    color: $light;
-    margin: 0;
-    padding: 0;
-    background: none;
-    -webkit-transition: .2s all ease-in-out;
-    -moz-transition: .2s all ease-in-out;
-    transition: .2s all ease-in-out;
-  }
-  
-  a:hover, a:active, a:focus {
-    border-bottom: 2px solid $light;
-  }
+  #credits { display: none; }
 }
 
 @media(min-height: 450px) {

@@ -1,3 +1,4 @@
+// Tabs
 var btns = document.querySelectorAll('#right > div'),
 	queryBar = document.querySelector('#left input');
 
@@ -50,3 +51,56 @@ queryBar.onkeydown = function(e) {
 		}
 	}
 };
+
+// Date & Time
+var $datetime_day = document.querySelector('.datetime-day'),
+    $datetime_time = document.querySelector('.datetime-time');
+
+function clock() {
+  var rawtime = new Date(),
+      curHours = rawtime.getHours(),
+      curMinutes = rawtime.getMinutes(),
+      curSeconds = rawtime.getSeconds(),
+      curDay = rawtime.getDay(),
+      daystr;
+
+  curMinutes = ( curMinutes < 10 ? "0" : "" ) + curMinutes;
+  curSeconds = ( curSeconds < 10 ? "0" : "" ) + curSeconds;
+
+  switch (curDay) {
+    case 0:
+      daystr = "日";
+      break;
+    case 1:
+      daystr = "月";
+      break;
+    case 2:
+      daystr = "火";
+      break;
+    case 3:
+      daystr = "水";
+      break;
+    case 4:
+      daystr = "木";
+      break;
+    case 5:
+      daystr = "金";
+      break;
+    case 6:
+      daystr = "土";
+      break;
+    default:
+      daystr = " ";
+  }
+
+  if (curSeconds % 2 == 0)
+    var curTimeString = curHours + ":" + curMinutes + ":" + curSeconds;
+  else
+    var curTimeString = curHours + " " + curMinutes + " " + curSeconds;
+
+  $datetime_time.innerHTML="<span>" + curTimeString + "</span>";
+  $datetime_day.innerHTML="<span>" + daystr + "</span>";
+}
+
+clock();
+setInterval(clock, 1000);
