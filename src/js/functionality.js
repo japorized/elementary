@@ -64,6 +64,7 @@ function clock() {
       curDay = rawtime.getDay(),
       daystr;
 
+  curHours = ( curHours < 10 ? "0" : "" ) + curHours;
   curMinutes = ( curMinutes < 10 ? "0" : "" ) + curMinutes;
   curSeconds = ( curSeconds < 10 ? "0" : "" ) + curSeconds;
 
@@ -98,8 +99,10 @@ function clock() {
   else
     var curTimeString = curHours + " " + curMinutes + " " + curSeconds;
 
-  $datetime_time.innerHTML="<span>" + curTimeString + "</span>";
-  $datetime_day.innerHTML="<span>" + daystr + "</span>";
+  // $datetime_time.innerHTML = "<span>" + curTimeString + "</span>";
+  $datetime_time.innerHTML = curTimeString;
+  // $datetime_day.innerHTML = "<span>" + daystr + "</span>";
+  $datetime_day.innerHTML = daystr;
 }
 
 clock();
