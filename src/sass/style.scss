@@ -37,6 +37,11 @@ $datetime-container-right: $datetime-container-top;
   font-style: normal;
 }
 
+a.noaction {
+  pointer-events: none;
+  cursor: default;
+}
+
 body {
   background: $dark;
   color: $light;
@@ -251,6 +256,11 @@ body {
         background: none;
         height: 80%;
         cursor: pointer;
+
+        a:link, a:hover, a:visited, a:focus {
+          color: $light;
+          text-decoration: none;
+        }
       }
     }
 
