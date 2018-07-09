@@ -20,12 +20,11 @@
   },
   "homepage": "https://github.com/japorized/elementary#readme",
   "devDependencies": {
-    "browser-sync": "^2.23.6",
-    "gulp": "^3.9.1",
-    "gulp-sass": "^3.1.0",
+    "browser-sync": "^2.24.5",
+    "gulp": "^4.0.0",
+    "gulp-sass": "^4.0.1",
     "gulp-uglify": "^3.0.0",
-    "gulp-util": "^3.0.8",
-    "pump": "^2.0.1"
+    "pump": "^3.0.0"
   },
   "dependencies": {}
 }

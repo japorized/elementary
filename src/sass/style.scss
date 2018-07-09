@@ -15,7 +15,7 @@ $total-categories: 7;
 $datetime-container-width: 25%;
 $datetime-container-height: 10%;
 $datetime-container-top: 10px;
-$datetime-container-left: 100% - $datetime-container-width - 2%;
+$datetime-container-right: $datetime-container-top;
 
 *, html, body {
   margin: 0;
@@ -90,10 +90,11 @@ body {
       .datetime-container {
         position: absolute;
         width: $datetime-container-width;
+        min-width: 236px;
         height: $datetime-container-height;
         background: rgba(0, 0, 0, 0.5);
         top: $datetime-container-top;
-        left: $datetime-container-left;
+        right: $datetime-container-right;
         padding: 15px 20px 20px 20px;
         display: flex;
         justify-content: space-between;
@@ -348,6 +349,7 @@ body {
 
         .datetime-container {
           width: 80%;
+          min-width: auto;
           top: 70%;
           left: 10%;
 

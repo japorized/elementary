@@ -2,13 +2,13 @@ const gulp = require('gulp'),
       sass = require('gulp-sass'),
       uglify = require('gulp-uglify'),
       pump = require('pump'),
-      gulpUtil = require('gulp-util'),
       browserSync = require('browser-sync');
 
-gulp.task('sass', () => {
-  return gulp.src('./src/sass/**/*.scss')
+gulp.task('sass', (done) => {
+  gulp.src('./src/sass/**/*.scss')
     .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(gulp.dest('./assets/css'));
+  done();
 });
 
 gulp.task('uglify', (cb) => {
@@ -30,20 +30,24 @@ gulp.task('uglify', (cb) => {
   }
 });
 
-gulp.task('browser-sync', ['sass', 'uglify'], () => {
-  browserSync({
+gulp.task('browser-sync', gulp.series(['sass', 'uglify'], (done) => {
+  browserSync.init({
     server: {
       baseDir: './'
     }
   });
-})
+  gulp.watch(['./index.html', './assets/**/*'], cb => {
+    browserSync.reload();
+    cb();
+  });
+  done();
+}));
 
 gulp.task('watcher', () => {
-  gulp.watch(['src/sass/**/*.scss'], ['sass']);
-  gulp.watch(['src/js/**/*.js'], ['uglify']);
-  gulp.watch(['index.html', 'assets/**/*'], () => {browserSync.reload()});
+  gulp.watch(['./src/sass/**/*.scss'], gulp.series( 'sass' ));
+  gulp.watch(['./src/js/**/*.js'], gulp.series( 'uglify' ));
 });
 
-gulp.task('build', ['sass', 'uglify']);
-gulp.task('watch', ['browser-sync', 'watcher']);
-gulp.task('default', [ 'watch' ]);
+gulp.task('build', gulp.series(['sass', 'uglify']));
+gulp.task('watch', gulp.series( ['browser-sync', 'watcher'] ));
+gulp.task('default', gulp.series( [ 'watch' ] ));
