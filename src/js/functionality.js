@@ -30,16 +30,40 @@ document.onkeyup = function (e) {
 	}
 };
 
+function hasName(val) {
+  var names = [ '.com', '.org', '.io', '.net', '.ca', '.ink' ];
+  for ( var i = 0 ; i < names.length ; i++ ) {
+    if ( val.indexOf(names[i]) > 0 ) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function hasProtocol(url) {
+  var protocols = [ 'http://', 'https://', 'file://' ];
+  for ( var i = 0 ; i < protocols.length ; i++ ) {
+    if ( url.indexOf(protocols[i]) == 0 ) {
+      return true;
+    }
+  }
+  return false;
+}
+
 queryBar.onkeydown = function(e) {
   var $this = this;
 	if (e.key == "Enter") {
-		if ($this.value.indexOf('http://') == 0 || $this.value.indexOf('https://') == 0 || $this.value.indexOf('file://') == 0) {
+		if (hasProtocol($this.value)) {
 			  window.location.href = $this.value;
 		} else {
-      if ($this.value.indexOf('.com') > 0 || $this.value.indexOf('.org') > 0 || $this.value.indexOf('.io') > 0 || $this.value.indexOf('.ca') > 0) {
+      if (hasName($this.value)) {
         window.location.href = "https://" + $this.value;
-      } else if ($this.value.indexOf('/r/') != -1) {
-        window.location.href = "https://reddit.com" + $this.value;
+      } else if ($this.value.indexOf('/r/') == 0 || $this.value.indexOf('r/') == 0) {
+        if ( $this.value.indexOf('/') == 0 ) {
+          window.location.href = "https://reddit.com" + $this.value;
+        } else {
+          window.location.href = "https://reddit.com/" + $this.value;
+        }
       } else {
 			  window.location.href = "https://duckduckgo.com/?q=" + $this.value;
 		  }
@@ -51,6 +75,40 @@ queryBar.onkeydown = function(e) {
 		}
 	}
 };
+
+// Fill in bookmarks
+function bookmarks() {
+  window.data = getJSON('/bookmarks.json').then(function(database) {
+    for ( var data in database ) {
+      var datakey = data;
+      data = database[data];
+      for ( var key in data ) {
+        key = data[key];
+        var str = "<a tabindex='-1' href='" + key.url + "'>" + key.title + "</a> ";
+        var $box = document.querySelector('#' + datakey + '-content .content-container p');
+        $box.innerHTML += str;
+      }
+    }
+  });
+}
+
+function getJSON(path) {
+  return new Promise(function(resolve, reject) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", path, true);
+    xhr.responseType = 'json';
+    xhr.onload = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                resolve(xhr.response);
+            } else {
+              reject(xhr.status);
+            }
+        }
+    };
+    xhr.send();
+  });
+}
 
 // Date & Time
 var $datetime_day = document.querySelector('.datetime-day'),
@@ -99,11 +157,10 @@ function clock() {
   else
     var curTimeString = curHours + " " + curMinutes + " " + curSeconds;
 
-  // $datetime_time.innerHTML = "<span>" + curTimeString + "</span>";
   $datetime_time.innerHTML = curTimeString;
-  // $datetime_day.innerHTML = "<span>" + daystr + "</span>";
   $datetime_day.innerHTML = daystr;
 }
 
+bookmarks();
 clock();
 setInterval(clock, 1000);

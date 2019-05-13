@@ -150,27 +150,27 @@ body {
       }
     }
 
-    #reddit-content {
+    #red-content {
       background: $red;
     }
 
-    #anime-content {
+    #blue-content {
       background: $blue;
     }
 
-    #code-content {
+    #magenta-content {
       background: $magenta;
     }
 
-    #podcast-content {
+    #cyan-content {
       background: $lightblue;
     }
 
-    #social-content {
+    #yellow-content {
       background: $yellow;
     }
 
-    #game-content {
+    #green-content {
       background: $green;
     }
 
@@ -182,7 +182,7 @@ body {
       }
     }
 
-    #reddit-content, #anime-content, #code-content, #social-content, #game-content, #podcast-content {
+    #red-content, #blue-content, #magenta-content, #yellow-content, #green-content, #cyan-content {
       a:link, a:visited {
         text-decoration: none;
         color: $dark;
@@ -219,30 +219,30 @@ body {
         background: $gray;
       }
 
-      &#reddit:hover {
+      &#red:hover {
         background: $red;
       }
 
-      &#anime:hover {
+      &#blue:hover {
         background: $blue;
       }
 
-      &#code:hover {
+      &#magenta:hover {
         background: $magenta;
         color: $dark;
       }
 
-      &#podcast:hover {
+      &#cyan:hover {
         background: $lightblue;
         color: $dark;
       }
       
-      &#social:hover {
+      &#yellow:hover {
         background: $yellow;
         color: $dark;
       }
 
-      &#game:hover {
+      &#green:hover {
         background: $green;
         color: $dark;
       }
@@ -258,25 +258,25 @@ body {
       background: $gray;
     }
 
-    #reddit.active {
+    #red.active {
       background: $red;
     }
 
-    #anime.active {
+    #blue.active {
       background: $blue;
     }
 
-    #code.active {
+    #magenta.active {
       background: $magenta;
       color: $dark;
     }
 
-    #social.active {
+    #yellow.active {
       background: $yellow;
       color: $dark;
     }
 
-    #game.active {
+    #green.active {
       background: $green;
       color: $dark;
     }
