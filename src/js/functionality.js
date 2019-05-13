@@ -2,6 +2,8 @@
 var btns = document.querySelectorAll('#right > div'),
 	queryBar = document.querySelector('#left input');
 
+window.data = getJSON('/bookmarks.json');
+
 for (var i = 0; i < btns.length; i++) {
 	btns[i].addEventListener('click', function(e) {
 		document.querySelector('#right > .active').classList.remove('active');
@@ -70,22 +72,35 @@ queryBar.onkeydown = function(e) {
 		}
 	} else if (e.keyCode == 9) {
 		e.preventDefault();
-		if ($this.value.indexOf('ht') == 0) {
+		if ($this.value == "ht") {
 			$this.value = 'https://';
-		}
+		} else {
+      window.data.then(function(database) {
+        for ( var data in database ) {
+          data = database[data];
+          for ( var key in data ) {
+            key = data[key];
+            if ( key.url.indexOf($this.value.toLowerCase()) > -1 ) {
+              $this.value = key.url;
+            }
+          }
+        }
+      })
+    }
 	}
 };
 
 // Fill in bookmarks
 function bookmarks() {
-  window.data = getJSON('/bookmarks.json').then(function(database) {
+  window.data.then(function(database) {
     for ( var data in database ) {
       var datakey = data;
+      var $box = document.querySelector('#' + datakey + '-content .content-container p');
       data = database[data];
+
       for ( var key in data ) {
         key = data[key];
         var str = "<a tabindex='-1' href='" + key.url + "'>" + key.title + "</a> ";
-        var $box = document.querySelector('#' + datakey + '-content .content-container p');
         $box.innerHTML += str;
       }
     }
