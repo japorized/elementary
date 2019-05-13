@@ -2,7 +2,7 @@
 var btns = document.querySelectorAll('#right > div'),
 	queryBar = document.querySelector('#left input');
 
-window.data = getJSON('/bookmarks.json');
+window.data = getJSON('/elementary/bookmarks.json');
 
 for (var i = 0; i < btns.length; i++) {
 	btns[i].addEventListener('click', function(e) {
