@@ -13,18 +13,22 @@
       "url": "https://www.geogebra.org/graphing"
     },
     "3": {
+      "title": "Mathcha".
+      "url": "https://www.mathcha.io/editor"
+    },
+    "4": {
       "title": "Lib",
       "url": "https://www.lib.uwaterloo.ca"
     },
-    "4": {
+    "5": {
       "title": "Portal",
       "url": "https://portal.uwaterloo.ca"
     },
-    "5": {
+    "6": {
       "title": "Learn",
       "url": "https://learn.uwaterloo.ca"
     },
-    "6": {
+    "7": {
       "title": "Detexity",
       "url": "http://detexify.kirelabs.org/classify.html"
     }
