@@ -35,18 +35,14 @@
   },
   "blue": {
     "0": {
-      "title": "Masterani.me",
-      "url": "https://masterani.me"
-    },
-    "1": {
       "title": "kitsu.io",
       "url": "https://kitsu.io"
     },
-    "2": {
+    "1": {
       "title": "MangaRock",
       "url": "https://mangarock.com"
     },
-    "3": {
+    "2": {
       "title": "dojin.co",
       "url": "https://dojin.co"
     }
