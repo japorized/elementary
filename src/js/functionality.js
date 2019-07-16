@@ -19,6 +19,7 @@ for (var i = 0; i < btns.length; i++) {
 	});
 }
 
+// switch to search tab on !
 document.onkeyup = function (e) {
 	if (e.shiftKey && e.keyCode == 49) {
 		var curActive = document.querySelector('#right > .active');
@@ -32,26 +33,7 @@ document.onkeyup = function (e) {
 	}
 };
 
-function hasName(val) {
-  var names = [ '.com', '.org', '.io', '.net', '.ca', '.ink' ];
-  for ( var i = 0 ; i < names.length ; i++ ) {
-    if ( val.indexOf(names[i]) > 0 ) {
-      return true;
-    }
-  }
-  return false;
-}
-
-function hasProtocol(url) {
-  var protocols = [ 'http://', 'https://', 'file://' ];
-  for ( var i = 0 ; i < protocols.length ; i++ ) {
-    if ( url.indexOf(protocols[i]) == 0 ) {
-      return true;
-    }
-  }
-  return false;
-}
-
+// smart search
 queryBar.onkeydown = function(e) {
   var $this = this;
 	if (e.key == "Enter") {
@@ -67,7 +49,11 @@ queryBar.onkeydown = function(e) {
           window.location.href = "https://reddit.com/" + $this.value;
         }
       } else {
-			  window.location.href = "https://duckduckgo.com/?q=" + $this.value;
+        if ( $this.value.indexOf('qw ') == 0 ) { // escape default search to use qwant as search engine
+          window.location.href = "https://lite.qwant.com/?q=" + $this.value.substring(3, $this.length);
+        } else { // defaults to searching using ddg
+			    window.location.href = "https://duckduckgo.com/?q=" + $this.value;
+        }
 		  }
 		}
 	} else if (e.keyCode == 9) {
@@ -90,7 +76,7 @@ queryBar.onkeydown = function(e) {
 	}
 };
 
-// Fill in bookmarks
+// fill in bookmarks onload
 function bookmarks() {
   window.data.then(function(database) {
     for ( var data in database ) {
@@ -104,24 +90,6 @@ function bookmarks() {
         $box.innerHTML += str;
       }
     }
-  });
-}
-
-function getJSON(path) {
-  return new Promise(function(resolve, reject) {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", path, true);
-    xhr.responseType = 'json';
-    xhr.onload = function() {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-            if (xhr.status === 200) {
-                resolve(xhr.response);
-            } else {
-              reject(xhr.status);
-            }
-        }
-    };
-    xhr.send();
   });
 }
 
@@ -174,6 +142,47 @@ function clock() {
 
   $datetime_time.innerHTML = curTimeString;
   $datetime_day.innerHTML = daystr;
+}
+
+/* 
+ * UTILITIES
+ */
+function hasName(val) {
+  var names = [ '.com', '.org', '.io', '.net', '.ca', '.ink' ];
+  for ( var i = 0 ; i < names.length ; i++ ) {
+    if ( val.indexOf(names[i]) > 0 ) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function hasProtocol(url) {
+  var protocols = [ 'http://', 'https://', 'file://' ];
+  for ( var i = 0 ; i < protocols.length ; i++ ) {
+    if ( url.indexOf(protocols[i]) == 0 ) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function getJSON(path) {
+  return new Promise(function(resolve, reject) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", path, true);
+    xhr.responseType = 'json';
+    xhr.onload = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                resolve(xhr.response);
+            } else {
+              reject(xhr.status);
+            }
+        }
+    };
+    xhr.send();
+  });
 }
 
 bookmarks();
