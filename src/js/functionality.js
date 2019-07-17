@@ -179,8 +179,6 @@ function getJSON(path) {
   });
 }
 
-document.addEventListener('DOMContentLoaded', function(event) {
-  bookmarks();
-  clock();
-});
+bookmarks();
+clock();
 setInterval(clock, 1000);
