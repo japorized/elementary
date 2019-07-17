@@ -5,12 +5,6 @@ var btns = document.querySelectorAll('#right > div'),
 window.data = getJSON('/elementary/bookmarks.json');
 
 for (var i = 0; i < btns.length; i++) {
-	btns[i].addEventListener('click', function(e) {
-		document.querySelector('#right > .active').classList.remove('active');
-		this.classList += 'active';
-		document.querySelector('#left > .active').classList.remove('active');
-		document.querySelector('#left > #' + this.getAttribute('id') + '-content').classList += 'active';
-	});
 	btns[i].addEventListener('mouseover', function(e) {
 		document.querySelector('#right > .active').classList.remove('active');
 		this.classList += 'active';
@@ -71,7 +65,7 @@ queryBar.onkeydown = function(e) {
             }
           }
         }
-      })
+      });
     }
 	}
 };
@@ -185,6 +179,8 @@ function getJSON(path) {
   });
 }
 
-bookmarks();
-clock();
+document.addEventListener('DOMContentLoaded', function(event) {
+  bookmarks();
+  clock();
+});
 setInterval(clock, 1000);
