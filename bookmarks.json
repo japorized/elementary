@@ -37,14 +37,6 @@
     "0": {
       "title": "kitsu.io",
       "url": "https://kitsu.io"
-    },
-    "1": {
-      "title": "MangaRock",
-      "url": "https://mangarock.com"
-    },
-    "2": {
-      "title": "dojin.co",
-      "url": "https://dojin.co"
     }
   },
   "magenta": {
@@ -59,6 +51,10 @@
     "2": {
       "title": "/r/unixporn",
       "url": "https://reddit.com/r/unixporn"
+    },
+    "3": {
+      "title": "Crates.io",
+      "url": "https://crates.io"
     }
   },
   "cyan": {
@@ -111,8 +107,8 @@
       "url": "https://reddit.com/r/houkai3rd"
     },
     "1": {
-      "title": "Gamewith 崩壊3rd攻略",
-      "url": "https://houkai3rd.gamewith.jp"
+      "title": "Game8 崩壊3rd攻略",
+      "url": "https://game8.jp/houkai3rd"
     },
     "2": {
       "title": "Gamewith プリコネ:ReDive攻略",
