@@ -125,6 +125,8 @@ queryBar.onkeyup = function(e) {
     showBangMatches(matches);
     if ( matches.length === 0 ) {
       cleanBangMatches();
+    } else {
+      makeBangMatchesClickable();
     }
     if ( e.keyCode === 9 ) {
       this.value = "!" + matches[0].bang;
@@ -302,6 +304,18 @@ function showBangMatches(matches) {
     ul.appendChild(li);
   });
 }
+
+function makeBangMatchesClickable() {
+  const lis = document.querySelectorAll('.bang-matches ul li');
+  if ( lis !== null ) {
+    lis.forEach((li) => {
+      li.addEventListener('click', () => {
+        const bang = li.querySelector('b').innerHTML;
+        queryBar.value = bang;
+      });
+    });
+  }
+};
 
 function cleanBangMatches() {
   const div = document.querySelector('.bang-matches');
