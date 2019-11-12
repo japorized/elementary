@@ -1,11 +1,12 @@
 # This file is a template, and might need editing before it works on your project.
 # Full project: https://gitlab.com/pages/plain-html
+image: alpine:latest
 pages:
   stage: deploy
   script:
-  - mkdir .public
-  - cp -r index.html bookmarks.json assets/ -t .public
-  - mv .public public
+  - rm -drf public
+  - mkdir public
+  - cp -r index.html bookmarks.json assets/ -t public
   artifacts:
     paths:
     - public
