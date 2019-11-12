@@ -148,6 +148,23 @@ body {
       &:hover input {
         opacity: 1;
       }
+
+      .bang-matches {
+        width: 100%;
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.5);
+        color: $light;
+        position: absolute;
+        bottom: 60px;
+        max-height: 300px;
+        overflow-y: auto;
+
+        ul li {
+          display: flex;
+          justify-content: space-between;
+          margin: 5px auto;
+        }
+      }
     }
 
     #red-content {
@@ -350,7 +367,6 @@ body {
         .datetime-container {
           width: 80%;
           min-width: auto;
-          top: 70%;
           left: 10%;
 
           .datetime-day {
@@ -364,6 +380,12 @@ body {
               font-size: 18px;
             }
           }
+        }
+
+        .bang-matches {
+          margin: 10px auto;
+          position: relative;
+          max-height: 100px;
         }
       }
     }

@@ -20,8 +20,12 @@
   },
   "homepage": "https://github.com/japorized/elementary#readme",
   "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/plugin-transform-arrow-functions": "^7.2.0",
+    "@babel/preset-env": "^7.7.1",
     "browser-sync": "^2.26.7",
     "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
     "gulp-sass": "^4.0.2",
     "gulp-uglify": "^3.0.2",
     "pump": "^3.0.0"
