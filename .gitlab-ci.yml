@@ -6,7 +6,7 @@ pages:
   script:
   - rm -Rf public
   - mkdir public
-  - cp -r index.html bookmarks.json assets/ -t public
+  - cp -rf index.html bookmarks.json assets/ public
   artifacts:
     paths:
     - public
