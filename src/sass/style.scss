@@ -242,6 +242,7 @@ body {
     display: inline-block;
     font-family: "KFhimaji";
     text-align: center;
+    color: var(--body-fg-color);
 
     & > div {
       width: 100%;
