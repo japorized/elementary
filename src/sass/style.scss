@@ -17,6 +17,22 @@ $datetime-container-height: 10%;
 $datetime-container-top: 10px;
 $datetime-container-right: $datetime-container-top;
 
+@media (prefers-color-scheme: light) {
+  :root{
+    --body-bg-color: #fff3cb;
+    --body-fg-color: #010101;
+    --search-img-src: url('/assets/img/fish_petshop_routine.gif');
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --body-bg-color: #2d2d2d;
+    --body-fg-color: #d3d0c8;
+    --search-img-src: url('/assets/img/city_night_dark.gif');
+  }
+}
+
 *, html, body {
   margin: 0;
   padding: 0;
@@ -38,8 +54,8 @@ $datetime-container-right: $datetime-container-top;
 }
 
 body {
-  background: $dark;
-  color: $light;
+  background: var(--body-bg-color);
+  color: var(--body-fg-color)t;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 300;
   height: 100vh;
@@ -84,7 +100,9 @@ body {
     }
 
     #search-content {
-      background: no-repeat url('../img/city_night_dark.gif') center;
+      background: var(--search-img-src);
+      background-repeat: no-repeat;
+      background-position: center;
       background-size: cover;
 
       .datetime-container {
@@ -98,6 +116,7 @@ body {
         padding: 15px 20px 20px 20px;
         display: flex;
         justify-content: space-between;
+        color: $light;
 
         .datetime-day {
           width: 30%;
@@ -121,7 +140,6 @@ body {
           justify-content: center;
           align-items: center;
           letter-spacing: 3px;
-          color: rgba(255, 255, 255, 0.5);
         }
       }
 
@@ -234,7 +252,7 @@ body {
       line-height: 75px;
 
       &#search:hover {
-        background: $gray;
+        background: rgba(0, 0, 0, 0.2);
       }
 
       &#red:hover {
@@ -273,7 +291,7 @@ body {
     }
 
     #search.active {
-      background: $gray;
+      background: rgba(0, 0, 0, 0.2);
     }
 
     #red.active {
@@ -312,7 +330,7 @@ body {
   bottom: 5px;
 
   a:link, a:visited, a:hover, a:active, a:focus {
-    color: $light;
+    color: var(--body-fg-color);
     margin: 0;
     padding: 0;
     background: none;
