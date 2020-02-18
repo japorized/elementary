@@ -55,6 +55,10 @@
     "3": {
       "title": "Crates.io",
       "url": "https://crates.io"
+    },
+    "4": {
+      "title": "DevDocs",
+      "url": "https://devdocs.io/"
     }
   },
   "cyan": {
