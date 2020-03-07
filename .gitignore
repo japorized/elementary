@@ -2,6 +2,7 @@
 .devnotes
 scripts/
 .sass_cache/
+src/babel/
 
 ## macOS
 # General

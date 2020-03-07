@@ -2,33 +2,38 @@
   "name": "elementary",
   "version": "0.1.0",
   "description": "a personal startpage/homepage",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/japorized/elementary.git"
+    "url": "git+https://gitlab.com/japorized/elementary.git"
   },
   "keywords": [
-    "stagepage"
+    "startpage"
   ],
   "author": "Japorized",
   "license": "Unlicense",
   "bugs": {
-    "url": "https://github.com/japorized/elementary/issues"
+    "url": "https://gitlab.com/japorized/elementary/issues"
   },
-  "homepage": "https://github.com/japorized/elementary#readme",
+  "homepage": "https://gitlab.com/japorized/elementary#readme",
   "devDependencies": {
     "@babel/core": "^7.7.7",
     "@babel/plugin-transform-arrow-functions": "^7.7.4",
     "@babel/preset-env": "^7.7.7",
     "browser-sync": "^2.26.7",
+    "browserify": "^16.5.0",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-sass": "^4.0.2",
     "gulp-uglify": "^3.0.2",
-    "pump": "^3.0.0"
+    "gulplog": "^1.0.0",
+    "node-sass": "^4.13.1",
+    "pump": "^3.0.0",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
   },
   "dependencies": {}
 }
