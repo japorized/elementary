@@ -74,4 +74,4 @@ To deploy to your own repo so that you can access it via `https://<your gitlab u
 
 Only dev issues
 
-* Cannot get BrowserSync to work properly
+* `Error: ENOTDIR: not a directory, stat '<project pwd>/src/babel/index.js/index'`
